@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019
+  ~ Mateusz Hermanowicz - All rights reserved.
+  ~ Stopwatch
+  ~
+  ~ Licensed under GNU GENERAL PUBLIC LICENSE 3.0
+  ~ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+  ~ Everyone is permitted to copy and distribute verbatim copies
+  ~ of this license document, but changing it is not allowed.
+  ~
+  ~ The GNU General Public License is a free, copyleft license for
+  ~ software and other kinds of works.
+  -->
+
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,14 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/chronometer"
+    <TextClock
+            android:id="@+id/clock"
+            android:format12Hour="hh:mm:ss a"
+            android:format24Hour="HH:mm:ss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0:00:00:00"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:textSize="36sp"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="50sp"
+            android:textStyle="bold"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

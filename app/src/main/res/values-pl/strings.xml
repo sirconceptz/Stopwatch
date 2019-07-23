@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (c) 2019
   ~ Mateusz Hermanowicz - All rights reserved.
@@ -13,14 +14,14 @@
   -->
 
 <resources>
-    <string name="app_name">Stopwatch</string>
-    <string name="clock">Clock</string>
-    <string name="stopwatch">Stopwatch</string>
-    <string name="start">Start</string>
-    <string name="pause">Pause</string>
+    <string name="app_name">Stoper</string>
+    <string name="clock">Zegar</string>
+    <string name="fullList">Lista jest pełna</string>
+    <string name="mensuration">Pomiar</string>
+    <string name="pause">Pauza</string>
     <string name="reset">Reset</string>
-    <string name="mensuration">Mensuration</string>
-    <string name="resume">Resume</string>
-    <string name="time">Time</string>
-    <string name="fullList">List is full</string>
+    <string name="resume">Wznów</string>
+    <string name="start">Start</string>
+    <string name="stopwatch">Stoper</string>
+    <string name="time">Czas</string>
 </resources>

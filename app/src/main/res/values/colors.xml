@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019
+  ~ Mateusz Hermanowicz - All rights reserved.
+  ~ Stopwatch
+  ~
+  ~ Licensed under GNU GENERAL PUBLIC LICENSE 3.0
+  ~ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+  ~ Everyone is permitted to copy and distribute verbatim copies
+  ~ of this license document, but changing it is not allowed.
+  ~
+  ~ The GNU General Public License is a free, copyleft license for
+  ~ software and other kinds of works.
+  -->
+
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>

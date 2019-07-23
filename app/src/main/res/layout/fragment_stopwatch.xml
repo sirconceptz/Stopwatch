@@ -1,48 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<!--
+  ~ Copyright (c) 2019
+  ~ Mateusz Hermanowicz - All rights reserved.
+  ~ Stopwatch
+  ~
+  ~ Licensed under GNU GENERAL PUBLIC LICENSE 3.0
+  ~ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+  ~ Everyone is permitted to copy and distribute verbatim copies
+  ~ of this license document, but changing it is not allowed.
+  ~
+  ~ The GNU General Public License is a free, copyleft license for
+  ~ software and other kinds of works.
+  -->
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:orientation="vertical">
 
-    <Chronometer
-            android:id="@+id/chronometer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:textSize="36sp"/>
+    <data>
+        <import type="android.view.View"/>
+        <variable name="viewModel" type="com.hermanowicz.stopwatch.StopwatchViewModel"/>
+    </data>
 
-    <Button
-            android:id="@+id/button_start"
-            android:text="@string/start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chronometer"
-            android:layout_marginTop="16dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-            android:id="@+id/button_pause"
-            android:text="@string/pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_start"
-            android:layout_marginTop="16dp"/>
+        <TextView
+                android:id="@+id/resultTV"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
 
-    <Button
-            android:id="@+id/button_reset"
-            android:text="@string/reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_pause"
-            android:layout_marginTop="16dp"/>
+        <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="50sp"
+                android:textStyle="bold"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+                android:id="@+id/button_start"
+                android:text="@string/start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chronometer"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.onButtonStartClicked()}"
+                android:visibility="@{viewModel.buttonStartVisibility}"/>
+
+        <Button
+                android:id="@+id/button_mensuration_reset"
+                android:text="@{viewModel.buttonMensurationResetText}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_start"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.onButtonMensurationResetClicked()}"
+                android:visibility="@{viewModel.buttonMensurationResetVisibility}"/>
+
+        <Button
+                android:id="@+id/button_resume_pause"
+                android:text="@{viewModel.buttonResumePauseText}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_mensuration_reset"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.onButtonResumePauseClicked()}"
+                android:visibility="@{viewModel.buttonResumePauseVisibility}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
